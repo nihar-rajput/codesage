@@ -18,6 +18,9 @@ class GitService:
     def clone_repository(self ,url: str):
         owner, repo, folder_name = self.parse_repository_url(url)
         destination = REPOSITORY_DIR/folder_name
+        print("Current working directory:", REPOSITORY_DIR.resolve().parent)
+        print("Repository directory:", REPOSITORY_DIR.resolve())
+        print("Destination:", destination.resolve())
         if destination.exists():
             raise FileExistsError("Repository already exists")
         
